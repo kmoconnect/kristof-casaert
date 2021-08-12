@@ -1,0 +1,26 @@
+.cta{
+    background-color: $primaryColor;
+    padding: 2.4rem 0;
+
+    &__wrapper{
+        text-align: center;
+
+        @include responsive(desktop){
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: unset;
+        }
+
+    }
+
+    &__title{
+        color: $white;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+
+        @include responsive(desktop){
+            margin-bottom: 0;
+        }
+    }
+}

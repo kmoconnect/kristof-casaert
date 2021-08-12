@@ -1,0 +1,110 @@
+/* Section hero image*/
+.hero{
+    padding: 5rem 0;
+    color: $white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    z-index: 1;
+ 
+
+    &::before{
+        content: '';
+        background-color: rgba(0,0,0,.38);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+    &__content {
+        z-index: 3;
+        position: relative;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 500;
+        max-width: 80rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100%;
+
+        h1{
+            font-size: 3.9rem;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        & span{
+            display: block;
+        }
+
+    }
+
+    &__icon{
+
+        margin: 3rem auto;
+        text-align: center;
+        z-index: 3;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        animation: heroIcon 1s ease-out infinite;
+
+        i{
+            border: solid 3px $white;
+            width: 4.5rem;
+            height: 4.5rem;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+
+            &::before{
+                font-size: 2.8rem;
+            }   
+        }
+
+    }
+
+    &__links{
+        width: 100%;
+        margin: 1.2rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        @include responsive(tablet,desktop){
+            flex-direction: row;
+        }
+
+        a.btn{
+            margin-right: 1.2rem;
+            text-transform: none;
+            margin-bottom: 1.2rem;
+
+            @include responsive(tablet){
+                margin-bottom: 0;
+            }
+        }
+
+    }
+
+    p{
+        margin: 1rem 0;
+    }
+  
+}
+
+@keyframes heroIcon {
+     0%{margin:3rem auto;}
+     50%{margin:2rem auto;}   
+     100%{margin:3rem auto;}   
+}

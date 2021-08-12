@@ -1,0 +1,103 @@
+.hero-home{
+    height: 45rem;
+}
+
+// Section USP
+.usp{
+
+    background-color: $primaryColor;
+    padding: 2.6rem 0;
+    color: $white;
+    
+    &__container{
+
+        @include responsive(tablet){
+            display: flex;
+            justify-content: space-between;
+        }
+        
+    }
+
+    &__item{
+        display: flex;
+        align-items: center;
+
+        &:not(:last-child){
+            @include mobile(){
+                margin-bottom: 1rem;
+            }
+        } 
+    }
+
+    &__icon{
+        padding: .8rem;
+        color: $secondaryColor;
+        font-size: 4.3rem;
+    }
+
+    &__title{
+        text-transform: uppercase;
+        font-weight: 700;
+        margin: 0;
+        padding-left: 2rem;
+        font-size: 2rem;
+
+        @include responsive(desktop){
+            font-size: 2.2rem;
+        }
+    }
+
+}
+
+
+
+
+// About us section
+.aboutus{
+
+    padding-bottom: 5rem;
+    &__wrapper{
+
+        text-align: center;
+
+        h2{
+            text-transform: none;
+            margin-bottom: 2rem;
+            color: $primaryColor;
+            line-height: 1.3;
+            font-weight: 400;
+        }
+    }
+
+}
+
+// Realisaties / projects section with slideshow
+.projects{
+    padding: 5rem;
+
+
+    &__slideshow{
+        position: relative;
+        margin: 7rem auto !important;
+
+        &-item{
+            margin-right: 2rem;
+            margin-bottom: 1rem;
+
+            &:hover{
+
+            }
+        }
+
+        img{
+            height: 30rem;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+
+
+
+}
+

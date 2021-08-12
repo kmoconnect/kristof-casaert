@@ -1,0 +1,213 @@
+
+header{
+    display: flex;
+    flex-direction: column-reverse;
+
+    @include responsive(desktop){
+        display: block;
+        flex-direction: unset;
+    }
+}
+
+.navbar{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $primaryColor;
+    padding-top: 2.5rem;
+
+    @include responsive(desktop){
+        padding: 0;
+    }
+
+
+    /* Nav Logo */
+    &__logo{
+        width: 30rem;
+        display: inline-block;
+    }
+    
+    /* Nav Bar */
+    &__navigation{
+        opacity: 0;
+        position: absolute;
+/*         transition: opacity 200ms ease-in-out; */
+        top: 100%;
+        left: 0;
+        width: 0px;
+        height: 0;
+        padding: 2rem;
+        z-index: 99;
+
+
+        /* Show navigation on large screen */
+        @include responsive(desktop){
+            position: relative;
+            opacity: 1;
+            width: 100%;
+            padding: 0;
+            height: auto;
+        }
+    }
+
+    &__container {
+        list-style: none;
+        padding: 1rem;
+
+        @include responsive(desktop){
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0;
+        }
+
+    }
+
+     // Nav Item
+     &__item{
+        
+        text-transform: uppercase;
+        font-size: 1.8rem;
+        font-weight: 400;
+        position: relative;
+
+    }
+
+
+    // Nav Link
+    &__item &__link{
+        color: $white;
+        padding: 1.5rem .8rem;
+        display: block;
+
+        @include responsive(desktop){
+            padding: 2.5rem .8rem;
+            display: inline-block;
+        }
+
+        &:hover{
+            background-color: $secondaryColor;
+        }
+
+    }
+
+    // Nav item with submenu
+    &__dropdown{
+
+        // Nav dropdown icon
+        & .navbar__link::after{
+            content: '\f0d7';
+            font-family: "Font Awesome 5 Free";
+            color: $white;
+            font-weight: 900;
+            padding: 0 1rem;
+        }
+
+        // Show submenu on hover
+        &:hover .navbar__submenu{
+            visibility: visible;
+            opacity: 1;
+            padding:2rem 0;
+            height: auto;
+        }
+    }
+
+    // Submenu
+    &__submenu{
+        background-color: $primaryColor;
+        display: block;
+        top: calc(100% - 1px);
+        left: 0;
+        transition: opacity 300ms ease-in;
+        visibility: hidden;
+        opacity: 0; 
+        position: relative;
+        width: 100%;
+        height: 0;
+
+        @include responsive (desktop){
+            position: absolute;
+            width: 23rem;
+
+        }
+        
+        // submenu item
+        &-item{
+            padding:1rem 2rem;
+            &:hover{
+                background-color: $secondaryColor;
+            }
+        }
+
+        // submenu link
+        &-item &-link{
+            color: $white;
+            width: 100%;
+            display: inline-block
+        }
+    }
+
+
+    &__checkbox{
+        display: none;
+    }
+
+    &__button{
+        cursor: pointer;
+        @include responsive(desktop){
+            display: none;
+        }
+        span{
+
+            text-align: center;
+            position: relative;
+
+            &,
+            &::after,
+            &::before{
+                width: 3rem;
+                height: 2px;
+                background-color: $white;
+                display: inline-block;
+                transition: all 100ms ease-in;
+            }
+
+            &::before,
+            &::after{
+                content: '';
+                position: absolute;
+                left: 0;
+            }
+
+            &::before{ top: -1rem; }
+            &::after { top:1rem; }
+        }
+    }
+
+    /* Nav Mobile Toggler */
+    &__checkbox:checked ~ &__navigation{
+        opacity: 1;
+        width: 100%;
+        height: auto;
+        background-color: $primaryColor;
+
+        ul > li {
+            opacity: 1;
+        }
+    }
+
+    &__checkbox:checked ~ &__button span{
+        background-color: transparent;
+    }
+
+    &__checkbox:checked ~ &__button span::before{
+        top: 0;
+        transform: rotate(45deg);
+    }
+
+    &__checkbox:checked ~ &__button span::after{
+        top: 0;
+        transform: rotate(-45deg);
+    }
+}

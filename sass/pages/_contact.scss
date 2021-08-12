@@ -1,0 +1,77 @@
+.contact{
+    padding:5rem 0;
+
+    &__info{
+        max-width: 75rem;
+        margin: auto;
+        & h1{
+            color: $primaryColor;
+            font-size: 3.7rem;
+        }
+
+    }
+
+    &__blockwrapper{
+        margin-top: 5rem;
+        display: flex;
+        flex-direction: column-reverse;
+        @include responsive(tablet, desktop){
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        & h2{
+            text-transform: none;
+            color: $primaryColor;
+            font-weight: 400;
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    &__blockleft{
+        margin-right: 7rem;
+        flex: 1;
+    }
+
+    &__blockright{
+        flex: 1;
+        margin-bottom: 4rem;
+
+        @include responsive(tablet, desktop){
+            margin-bottom: 0;
+        }
+    }
+
+    &__form{
+        display: flex;
+        flex-direction: column;
+
+        & input,
+        & textarea{
+            display: block;
+            margin-bottom: 2rem;
+        }
+    }
+
+}
+
+.contact .footer{
+    &__block-item{
+        padding: 1rem 0;
+
+        span{
+            color: $primaryColor;
+            font-weight: 400;
+            font-size: 1.8rem;
+        }
+    }
+}
+
+.maps{
+    line-height: 0;
+    & iframe{
+        width: 100%;
+    }
+}

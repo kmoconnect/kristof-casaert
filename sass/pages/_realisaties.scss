@@ -1,0 +1,123 @@
+.realisaties{
+    padding: 5rem 0;
+
+    &__filter{
+    }
+
+    &__list{
+        display: flex;
+        flex-direction: column;
+
+        @include responsive (tablet, desktop){
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+
+        }
+    }
+
+    &__item{
+        background-color: $primaryColor;
+        cursor: pointer;
+
+        @include responsive(tablet){
+            flex: 1 1 auto;
+        }
+
+        @include responsive (desktop){
+
+            flex: 0 0 auto;
+
+            &:first-child{
+                border-bottom-left-radius: 5px;
+                border-top-left-radius: 5px;
+            }
+            &:last-child{
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
+        }
+        
+        &:hover,
+        &:active,
+        &--active{
+            background-color: $secondaryColor;
+        }
+
+    }
+
+    &__link{
+        
+        &:any-link{
+            color: $white;
+            font-weight: 400;
+            padding: 1rem 2rem;
+            display: inline-block;
+        }
+    }
+
+    &__images{
+        
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        column-gap: 2rem;
+        row-gap: 2rem;
+        visibility: hidden;
+        width: 0;
+        height: 0;
+        opacity: 0;
+        transition: opacity 900ms ease-in-out;
+
+        &--active{
+            width: 100%;
+            height: 100%;
+            visibility: visible;
+            opacity: 1;
+            padding: 4rem 0;
+        }
+
+    }
+
+    &__image{
+        position: relative;
+        max-height: 25rem;
+        overflow: hidden;
+        border-radius: 5px;
+        box-shadow: 1px 1px #ddd;
+
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        &:hover .realisaties__overlay{
+            opacity: 1;
+        }
+    }
+
+    &__overlay{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.45);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: all 500ms ease-in;
+
+        &::after{
+            content: '\f00e';
+            font-family: $fontAwesome;
+            font-weight: 900;
+            color: $white;
+            font-size: 4rem;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "studio-webvision",
+  "version": "1.0.0",
+  "description": "HTML website studio webvision",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass --importer node_modules/node-sass-package-importer/dist/cli.js sass/main.scss css/style.css -w",
+    "devserver": "live-server --browser=FIREFOX --port=9000",
+    "start": "npm-run-all --parallel devserver watch:sass",
+    "compile:css": "node-sass --importer node_modules/node-sass-package-importer/dist/cli.js sass/main.scss css/style.comp.css",
+    "concat:css": "concat -o css/style.concat.css css/style.comp.css",
+    "browserslist": "last 10 versions",
+    "prefix:css": "postcss css/style.concat.css --use autoprefixer -o css/style.prefix.css",
+    "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:css concat:css prefix:css compress:css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@drewbot/sass-flexbox-grid": "^2.0.7",
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "autoprefixer": "^9.8.6",
+    "concat": "^1.0.3",
+    "node-sass": "^6.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.0",
+    "postcss-cli": "^8.3.1",
+    "node-sass-package-importer": "^5.3.2",
+    "slick-carousel": "^1.8.1"
+  },
+  "dependencies": {
+  }
+}

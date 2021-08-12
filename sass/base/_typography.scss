@@ -1,0 +1,21 @@
+// Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+body{
+    font-family: $fontFamily;
+    font-weight: 300;
+    line-height: 1.7;
+    font-size: $default-font-size;
+}
+
+h2{
+    font-weight: 300;
+    color: $heading;
+    text-transform: uppercase;
+    line-height: 1.8;
+    font-size: 2.5rem;
+
+    @include responsive(tablet){
+        font-size: 3rem;
+    }
+}
