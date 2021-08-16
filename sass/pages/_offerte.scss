@@ -1,0 +1,62 @@
+.offerte{
+    padding:5rem 0;
+
+    &__info{
+        max-width: 75rem;
+        margin: auto;
+        & h1{
+            color: $primaryColor;
+            font-size: 3.7rem;
+        }
+
+    }
+
+    &__blockwrapper{
+        margin-top: 5rem;
+        display: flex;
+        flex-direction: column-reverse;
+        @include responsive(tablet, desktop){
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        & h2{
+            text-transform: none;
+            color: $primaryColor;
+            font-weight: 400;
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    &__blockleft{
+        margin-right: 7rem;
+        flex: 1;
+    }
+
+    &__blockright{
+        flex: 2;
+        margin-bottom: 4rem;
+
+        @include responsive(tablet, desktop){
+            margin-bottom: 0;
+        }
+    }
+
+    &__input-group{
+        display: flex;
+        margin-bottom: 2rem;
+
+        &--input{
+            flex: 1;
+            margin-right: 1rem;
+        }
+    }
+
+    &__form-subtitle{
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+    }
+
+}
